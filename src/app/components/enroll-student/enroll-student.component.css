@@ -1,0 +1,226 @@
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container h2 {
+  color: #2d3748;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+  padding-bottom: 20px;
+}
+
+.enrollment-form {
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 30px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  background: white;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #f8f9ff;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.enrollment-form .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.message {
+  padding: 18px 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-weight: 600;
+  animation: slideIn 0.3s ease;
+  border-left: 5px solid;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.message.success {
+  background-color: #c6f6d5;
+  color: #22543d;
+  border-left-color: #48bb78;
+}
+
+.message.error {
+  background-color: #fed7d7;
+  color: #742a2a;
+  border-left-color: #f56565;
+}
+
+.enrollments-section {
+  margin-top: 40px;
+}
+
+.enrollments-section h3 {
+  color: #2d3748;
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 700;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.enrollments-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.enrollment-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.enrollment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.enrollment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+}
+
+.enrollment-card p {
+  margin: 12px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.enrollment-card strong {
+  display: block;
+  color: #667eea;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+}
+
+.no-data {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  padding: 50px 40px;
+  text-align: center;
+  border-radius: 12px;
+  color: #555;
+  font-size: 16px;
+  margin-top: 20px;
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+  }
+
+  .container h2 {
+    font-size: 24px;
+  }
+
+  .enrollments-list {
+    grid-template-columns: 1fr;
+  }
+
+  .enrollment-form {
+    padding: 20px;
+  }
+}

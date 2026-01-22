@@ -1,0 +1,227 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 35px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+  padding-bottom: 20px;
+}
+
+.header h2 {
+  color: #2d3748;
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.form-container {
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 35px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container h3 {
+  color: #667eea;
+  margin-top: 0;
+  margin-bottom: 22px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #f8f9ff;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 30px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  opacity: 0.8;
+}
+
+.course-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(102, 126, 234, 0.25);
+}
+
+.course-card:hover::after {
+  opacity: 1;
+}
+
+.course-card h3 {
+  color: #2d3748;
+  margin: 12px 0 16px 0;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.course-card p {
+  margin: 12px 0;
+  color: #555;
+  line-height: 1.8;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.course-card strong {
+  display: block;
+  color: #667eea;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.course-card .btn {
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.no-data {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+  padding: 60px 40px;
+  text-align: center;
+  border-radius: 12px;
+  color: #555;
+  font-size: 16px;
+  margin-top: 30px;
+  border: 2px dashed rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+}

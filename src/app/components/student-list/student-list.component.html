@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header">
+    <h2>Student Management</h2>
+    <button class="btn btn-primary" (click)="toggleForm()">
+      {{ showForm ? 'Cancel' : '+ Add New Student' }}
+    </button>
+  </div>
+
+  <div class="form-container" *ngIf="showForm">
+    <h3>Add New Student</h3>
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="newStudent.name" placeholder="Enter student name" />
+    </div>
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" [(ngModel)]="newStudent.email" placeholder="Enter email address" />
+    </div>
+    <div class="form-group">
+      <label>Department:</label>
+      <select [(ngModel)]="newStudent.department">
+        <option value="">Select Department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+    </div>
+    <button class="btn btn-success" (click)="addStudent()">Add Student</button>
+  </div>
+
+  <div class="table-container" *ngIf="students.length > 0; else noStudents">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students" class="table-row">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.department }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="deleteStudent(student.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noStudents>
+    <div class="no-data">No students found. Add one to get started!</div>
+  </ng-template>
+</div>

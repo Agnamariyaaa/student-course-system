@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="header">
+    <h2>Course Management</h2>
+    <button class="btn btn-primary" (click)="toggleForm()">
+      {{ showForm ? 'Cancel' : '+ Add New Course' }}
+    </button>
+  </div>
+
+  <div class="form-container" *ngIf="showForm">
+    <h3>Add New Course</h3>
+    <div class="form-group">
+      <label>Course Title:</label>
+      <input type="text" [(ngModel)]="newCourse.title" placeholder="Enter course title" />
+    </div>
+    <div class="form-group">
+      <label>Department:</label>
+      <select [(ngModel)]="newCourse.department">
+        <option value="">Select Department</option>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Available Seats:</label>
+      <input type="number" [(ngModel)]="newCourse.seats" min="1" placeholder="Enter number of seats" />
+    </div>
+    <button class="btn btn-success" (click)="addCourse()">Add Course</button>
+  </div>
+
+  <div class="grid-container" *ngIf="courses.length > 0; else noCourses">
+    <div class="course-card" *ngFor="let course of courses">
+      <h3>{{ course.title }}</h3>
+      <p><strong>Department:</strong> {{ course.department }}</p>
+      <p><strong>Available Seats:</strong> {{ course.seats }}</p>
+      <p><strong>Enrolled:</strong> {{ getEnrollmentCount(course.id) }}</p>
+      <button class="btn btn-danger btn-sm" (click)="deleteCourse(course.id)">Delete Course</button>
+    </div>
+  </div>
+
+  <ng-template #noCourses>
+    <div class="no-data">No courses available. Add one to get started!</div>
+  </ng-template>
+</div>

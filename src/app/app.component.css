@@ -1,0 +1,14 @@
+.container {
+  text-align: center;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #1976d2;
+}
+
+hr {
+  width: 50%;
+  margin: 20px auto;
+}
